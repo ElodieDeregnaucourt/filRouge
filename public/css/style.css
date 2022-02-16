@@ -1,0 +1,71 @@
+body{
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    background-image: url(../img/fond2.jpg) ;
+    background-repeat: no-repeat;
+    background-size: cover 100%;
+    color: whitesmoke;
+    width: 100%;
+
+
+}
+img {
+    margin: 10px;
+    height: 130px;
+}
+nav {
+    height: 150px;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1717b385
+}
+header a {
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    margin: 10px;
+    border: black solid 1px;
+   
+}
+#deco {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.allcard{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 50px;
+    margin-bottom: 50px;
+
+}
+.card{
+    background-color: rgba(0, 0, 0, 0.781);
+    border-radius: 10px;
+    border: white solid 1px;
+    margin: 20px;
+    width: 250px;
+
+}
+.btn{
+    font-size: 20px;
+    background-color: blueviolet;
+    color:white;
+    height: 50px;
+    width: 130px;
+    border-radius: 10px;
+    margin: 10px;
+    box-shadow: 10px 5px 5px rgba(0, 47, 255, 0.63);
+}
+.btn:active{
+    background-color: rgb(43, 61, 226);
+}
+
+#Emoji {
+    position: fixed;
+    height: 50px;
+}
+
+

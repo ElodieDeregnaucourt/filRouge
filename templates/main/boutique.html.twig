@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Boutique!{% endblock %}
+
+{% block body %}
+
+<style>
+.card img{
+    border-radius: 40px;
+}
+</style>
+
+<h1>Bienvenue sur la boutique</h1>
+
+	<div class="allcard">
+
+		<div class="card">
+			<h1>Super Among-us</h1>
+            <img src="{{ asset('img/amongus1.png')}}">
+			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+        	Rerum exercitationem praesentium dolores eligendi odio architecto 
+        	distinctio facilis eveniet ad minus. Alias nobis molestiae fugit
+        	 voluptatem at iusto sapiente quas accusamus?</p>
+
+            <button class="btn" href="#">Ajouter</button>
+		</div>
+		<div class="card">
+			<h1>Catmong-us</h1>
+            <img src="{{ asset('img/amongus2.png')}}">
+			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+        	Rerum exercitationem praesentium dolores eligendi odio architecto 
+        	distinctio facilis eveniet ad minus. Alias nobis molestiae fugit
+        	 voluptatem at iusto sapiente quas accusamus?</p>
+
+            <button class="btn" href="#">Ajouter</button>
+		</div>
+		<div class="card">
+			<h1>Red Among-us</h1>
+            <img src="{{ asset('img/logo-among-us.png')}}">
+			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+        	Rerum exercitationem praesentium dolores eligendi odio architecto 
+        	distinctio facilis eveniet ad minus. Alias nobis molestiae fugit
+        	 voluptatem at iusto sapiente quas accusamus?</p>
+
+            <button class="btn" href="#">Ajouter</button>
+		</div>
+
+	</div>
+	
+{% endblock %}
