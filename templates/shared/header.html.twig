@@ -2,16 +2,28 @@
     
         <nav>
          <div>
-             <img src="{{ asset('img/faucon.jpg')}}">
+             <img src={{ asset('img/faucon.jpg')}}>
          </div>
             <ul>
-                <a href="{{ path('accueil') }}">Accueil 🚀</a>
-                <a href="{{ path('boutique') }}">Boutique 🛸 </a>
-                <a href="{{ path('contacts') }}">Contacts 🌌</a>
-                <a href="{{ path('boutique_privee') }}">V.I.P 🪐</a>
+                <a href={{ path('accueil') }}>Accueil 🚀</a>
+                <a href={{ path('boutique') }}>Boutique 🛸 </a>
+                <a href={{ path('contacts') }}>Contacts 🌌</a>
+
+                {% if is_granted('ROLE_CLIENT') %}
+                <a href={{ path('boutique_privee') }}>V.I.P 🪐</a>
+                {% endif %}
+
                 <a href="{{ path('app_login') }}">Connection🌞</a>
-                <a id="deco" href="{{ path('app_logout') }}"> 🌠Tchiao!!🌠</a>
+                <a id="deco" href={{ path('app_logout') }}> 🌠Tchiao!!🌠</a>
                
+                {# Si ROLE_ADMIN : #}
+                {% if is_granted('ROLE_ADMIN') %}
+                {# <a style="display : {{ echoAdmin }}" href={{path ('admin')}}>Admin</a> #}
+                  <a href={{path ('admin')}}>Admin</a>
+                 {% endif %}
+        
+
+
             </ul>
         </nav>
 

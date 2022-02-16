@@ -5,7 +5,9 @@ namespace App\Controller;
 use App\Entity\Contact;
 use App\Entity\Product;
 use App\Entity\Category;
+use App\Form\ContactType;
 use App\Form\ProductType;
+use App\Form\CategoryType;
 use App\Repository\ContactRepository;
 use App\Repository\ProductRepository;
 use App\Repository\CategoryRepository;
@@ -70,7 +72,7 @@ class AdminController extends AbstractController
     public function modifier_produit(Product $products , Request $request, EntityManagerInterface $manager)
     {
  
-        $form = $this->createForm(ProduitsType::class, $products);
+        $form = $this->createForm(ProductType::class, $products);
         $form ->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()) 
@@ -82,8 +84,10 @@ class AdminController extends AbstractController
             return $this->redirectToRoute("produits_afficher");
         }
 
-        return $this->render('admin_produits/index.html.twig', [
-            'formProduct' => $form -> createView(),
+        return $this->render('admin/modifierProduit.html.twig', [
+            'formProd ' => $form -> createView(),
+
+            "produits" => $products,
 
         ]);
     }
@@ -135,13 +139,13 @@ class AdminController extends AbstractController
             return $this->redirectToRoute("contacts_afficher");
         }
 
-        return $this->render('admin_contact/index.html.twig', [
+        return $this->render('admin/ajouterContact.html.twig', [
             'formContact' => $form -> createView(),
 
         ]);
     }
     /* MODIFIER */
-    #[Route('/admin/contacts/modifier/{id}', name: 'admin_contacts_modifier')]
+    #[Route('/admin/contacts/modifier/{id}', name: 'contacts_modifier')]
 
     public function modifier_contact( Contact $contacts , Request $request, EntityManagerInterface $manager)
     {
@@ -158,8 +162,8 @@ class AdminController extends AbstractController
             return $this->redirectToRoute("contact_afficher");
         }
 
-        return $this->render('admin_contacts/index.html.twig', [
-            'formContact' => $form -> createView(),
+        return $this->render('admin/modifierContact.html.twig', [
+            'formCont' => $form -> createView(),
 
         ]);
     }
@@ -180,7 +184,7 @@ class AdminController extends AbstractController
     /*........CATEGORIES........*/
 
     /* AFFICHER */
-    #[Route('/admin/categories/afficher', name: 'admin_categories_afficher')]
+    #[Route('/admin/categories/afficher', name: 'categories_afficher')]
 
     public function display_categories(CategoryRepository $catR): Response 
     {
@@ -199,7 +203,7 @@ class AdminController extends AbstractController
          
         $categories = new Category;
  
-         $form = $this->createForm(CategoriesType::class,  $categories);
+         $form = $this->createForm(CategoryType::class,  $categories);
          $form ->handleRequest($request);
  
          if($form->isSubmitted() && $form->isValid()) 
@@ -211,18 +215,18 @@ class AdminController extends AbstractController
              return $this->redirectToRoute("categories_afficher");
          }
  
-         return $this->render('admin_categories/index.html.twig', [
+         return $this->render('admin/ajouterCategorie.html.twig', [
              'formCategory' => $form -> createView(),
  
          ]);
      }
       /* MODIFIER */
-    #[Route('/admin/categories/modifier/{id}', name: 'admin_categories_modifier')]
+    #[Route('/admin/categories/modifier/{id}', name: 'categories_modifier')]
 
     public function modifier_categories( Category $categories , Request $request, EntityManagerInterface $manager)
     {
  
-        $form = $this->createForm(CategoriesType::class, $categories);
+        $form = $this->createForm(CategoryType::class, $categories);
         $form ->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()) 
@@ -234,8 +238,8 @@ class AdminController extends AbstractController
             return $this->redirectToRoute("categories_afficher");
         }
 
-        return $this->render('admin_categories/index.html.twig', [
-            'formCategory' => $form -> createView(),
+        return $this->render('admin/modifierCategorie.html.twig', [
+            'formCat' => $form -> createView(),
 
         ]);
     }
