@@ -12,38 +12,31 @@
 
 <h1>Bienvenue sur la boutique</h1>
 
+	
 	<div class="allcard">
 
-		<div class="card">
-			<h1>Super Among-us</h1>
-            <img src="{{ asset('img/amongus1.png')}}">
-			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-        	Rerum exercitationem praesentium dolores eligendi odio architecto 
-        	distinctio facilis eveniet ad minus. Alias nobis molestiae fugit
-        	 voluptatem at iusto sapiente quas accusamus?</p>
+	
 
-            <button class="btn" href="#">Ajouter</button>
-		</div>
-		<div class="card">
-			<h1>Catmong-us</h1>
-            <img src="{{ asset('img/amongus2.png')}}">
-			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-        	Rerum exercitationem praesentium dolores eligendi odio architecto 
-        	distinctio facilis eveniet ad minus. Alias nobis molestiae fugit
-        	 voluptatem at iusto sapiente quas accusamus?</p>
+		{% if produits %}
+		
+			{% for pro in produits %} 
+			  
+				<div class="card">
+					<h1>{{pro.title}}</h1>
+					<img src={{ pro.image }}>
+					<p>{{pro.description}}</p>
+					<p>{{pro.price}} &euro;</p>
 
-            <button class="btn" href="#">Ajouter</button>
-		</div>
-		<div class="card">
-			<h1>Red Among-us</h1>
-            <img src="{{ asset('img/logo-among-us.png')}}">
-			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-        	Rerum exercitationem praesentium dolores eligendi odio architecto 
-        	distinctio facilis eveniet ad minus. Alias nobis molestiae fugit
-        	 voluptatem at iusto sapiente quas accusamus?</p>
+					<button class="btn" href="#">Ajouter</button>
+				</div>	
+			
+			{% endfor %}
+		
+		{% else %}
 
-            <button class="btn" href="#">Ajouter</button>
-		</div>
+		<h4>Il n'y a aucun produit pour le moment</h4>
+
+		{% endif %}
 
 	</div>
 	

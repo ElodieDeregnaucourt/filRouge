@@ -85,9 +85,7 @@ class AdminController extends AbstractController
         }
 
         return $this->render('admin/modifierProduit.html.twig', [
-            'formProd ' => $form -> createView(),
-
-            "produits" => $products,
+            'formProduct' => $form -> createView(),
 
         ]);
     }
@@ -159,7 +157,7 @@ class AdminController extends AbstractController
             $manager->persist($contacts); // définir l'objet a envoyer
             $manager->flush(); // envoyer
             $this ->addFlash ('success', "Votre contact " . $contacts->getFirstName() . " a bien été modifiée");
-            return $this->redirectToRoute("contact_afficher");
+            return $this->redirectToRoute("contacts_afficher");
         }
 
         return $this->render('admin/modifierContact.html.twig', [
@@ -177,7 +175,7 @@ class AdminController extends AbstractController
             $manager->remove($contacts); 
             $manager->flush();
             $this ->addFlash ('success', "Votre fiche contact " . $FirstNameContact . " a bien été supprimée");
-            return $this->redirectToRoute("contact_afficher");
+            return $this->redirectToRoute("contacts_afficher");
 
     }
 

@@ -4,8 +4,30 @@
 
 {% block body %}
     <h1>PRODUITS</h1>
+    <a href={{ path('admin') }}>Retour</a>
+    <a href={{ path('produit_ajouter') }}>Ajouter Produits</a>
 
-    <a href="{{ path('produit_ajouter') }}">Ajouter Produits</a>
+    
+    {% for notification in app.flashes('success') %}
+ 	    <div>{{ notification }}</div>
+ 	{% endfor %}
+
+	
+	{% if produits %}
+		<ul>
+			{% for pro in produits %} <br>
+				<li>Bonjour {{pro.title}} 
+					<a href={{ path('produit_modifier', { 'id' : pro.id } ) }}>Modifier</a> 
+					<a href={{ path('produit_supprimer', { 'id' : pro.id } ) }}>Supprimer</a>
+				</li>
+			{% endfor %}
+		</ul>
+	{% else %}
+
+		<h4>Il n'y a aucun produit pour le moment</h4>
+
+	{% endif %}
+
 
 
 {% endblock %}

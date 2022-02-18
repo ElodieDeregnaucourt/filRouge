@@ -34,10 +34,10 @@ class Contact
     #[ORM\Column(type: 'datetime_immutable')]
     private $updated_at;
 
-    #[ORM\OneToOne(targetEntity: self::class, cascade: ['persist', 'remove'])]
-    #[ORM\JoinColumn(nullable: false)]
-    private $contact;
+    #[ORM\ManyToOne(targetEntity: Product::class, inversedBy: 'contacts')]
+    private $product;
 
+    
     public function getId(): ?int
     {
         return $this->id;
@@ -127,14 +127,14 @@ class Contact
         return $this;
     }
 
-    public function getContact(): ?self
+    public function getProduct(): ?Product
     {
-        return $this->contact;
+        return $this->product;
     }
 
-    public function setContact(self $contact): self
+    public function setProduct(?Product $product): self
     {
-        $this->contact = $contact;
+        $this->product = $product;
 
         return $this;
     }

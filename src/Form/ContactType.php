@@ -20,7 +20,8 @@ class ContactType extends AbstractType
             ->add('comment')
             ->add('created_at')
             ->add('updated_at')
-            ->add('contact')
+            ->add('product')
+
 
             ->add('ajouter', SubmitType::class)
 

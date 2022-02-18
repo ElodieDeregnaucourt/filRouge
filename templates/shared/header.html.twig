@@ -13,7 +13,9 @@
                 <a href={{ path('boutique_privee') }}>V.I.P 🪐</a>
                 {% endif %}
 
-                <a href="{{ path('app_login') }}">Connection🌞</a>
+                <a href={{ path('app_regriste') }}>Inscris Toi🌟</a>
+
+                <a href={{ path('app_login') }}>Connection🌞</a>
                 <a id="deco" href={{ path('app_logout') }}> 🌠Tchiao!!🌠</a>
                
                 {# Si ROLE_ADMIN : #}
@@ -27,12 +29,9 @@
             </ul>
         </nav>
 
-    <img  id="Emoji" src="{{ asset('img/violet.png')}}">
+    <img  id="Emoji" src={{ asset('img/violet.png')}}>
     <br>
-    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
-    Iste maiores perspiciatis nulla natus ducimus quis eaque ad accusamus
-     eveniet odit ullam necessitatibus aliquam veritatis veniam 
-     sed obcaecati corporis, laborum porro.</p> 
+   
     <br>
 
 </header>

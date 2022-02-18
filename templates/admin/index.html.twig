@@ -6,25 +6,16 @@
 {% block body %}
     <h1>ADMIN</h1>
 
-<a href="{{ path('produits_afficher') }}">Produits</a>
+<a href={{ path('produits_afficher') }}>Produits</a>
 <br>
-<a href="{{ path('contacts_afficher') }}">Contacts</a>
+<a href={{ path('contacts_afficher') }}>Contacts</a>
 <br>
-<a href="{{ path('categories_afficher') }}">Categories</a>
+<a href={{ path('categories_afficher') }}>Categories</a>
 
 <br>
-{# 
-<a href="{{ path('produit_ajouter') }}">Ajouter Produits</a>
-<br>
-<a href="{{ path('contact_ajouter') }}">Ajouter Contacts</a>
-<br>
-<a href="{{ path('categories_ajouter') }}">Ajouter Categories</a> #}
+
 
 {% endblock %}
 
-{# <a href="{{ path('produit_modifier') }}">Modifier Produits</a>
-<br>
-<a href="{{ path('contacts_modifier') }}">Modifier Contacts</a>
-<br>
-<a href="{{ path('categories_modifier') }}">Modifier Categories</a> #}
+
 

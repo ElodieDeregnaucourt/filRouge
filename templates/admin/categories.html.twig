@@ -4,4 +4,27 @@
 
 {% block body %}
     <h1>CATEGORIES</h1>
+    <a href={{ path('admin') }}>Retour</a>
+    <a href={{ path('categories_ajouter') }}>Ajouter Categories</a>
+
+     {% for notification in app.flashes('success') %}
+ 	    <div>{{ notification }}</div>
+ 	{% endfor %}
+
+	
+	{% if categories %}
+		<ul>
+			{% for pro in categories %} <br>
+				<li>Bonjour {{pro.title}} 
+					<a href={{ path('categories_modifier', { 'id' : pro.id } ) }}>Modifier</a> 
+					<a href={{ path('categories_supprimer', { 'id' : pro.id } ) }}>Supprimer</a>
+				</li>
+			{% endfor %}
+		</ul>
+	{% else %}
+
+		<h4>Il n'y a aucunne categorie pour le moment</h4>
+
+	{% endif %}
+
 {% endblock %}

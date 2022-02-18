@@ -47,4 +47,15 @@ class ProductRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function findCategory($catId)
+    {
+        return $this->createQueryBuilder('p')
+            // ->innerJoin('category', 'cat', 'WITH', 'cat.id = product.categoryId')
+            ->andWhere('p.category = :catId')
+            ->setParameter('catId', $catId)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
 }

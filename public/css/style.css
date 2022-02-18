@@ -8,13 +8,17 @@ body{
     color: whitesmoke;
     width: 100%;
 
-
+}
+#copy{
+    position: fixed;
+    bottom: 0;
 }
 img {
     margin: 10px;
     height: 130px;
 }
 nav {
+   
     height: 150px;
     display:flex;
     justify-content: space-between;

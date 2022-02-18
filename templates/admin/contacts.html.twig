@@ -4,4 +4,28 @@
 
 {% block body %}
     <h1>CONTACTS</h1>
+	<a href={{ path('admin') }}>Retour</a>
+    <a href={{ path('contact_ajouter') }}>Ajouter Contacts</a>
+
+
+    {% for notification in app.flashes('success') %}
+ 	<div>{{ notification }}</div>
+ 	{% endfor %}
+
+
+	{% if contacts %}
+		<ul>
+			{% for gens in contacts %} <br>
+				<li>Bonjour {{gens.firstName}} 
+					<a href={{ path('contacts_modifier', { 'id' : gens.id } ) }}>Modifier</a> 
+					<a href={{ path('contact_supprimer', { 'id' : gens.id } ) }}>Supprimer</a>
+				</li>
+			{% endfor %}
+		</ul>
+	{% else %}
+
+		<h4>Il n'y a aucun contact pour le moment</h4>
+
+	{% endif %}
+
 {% endblock %}
